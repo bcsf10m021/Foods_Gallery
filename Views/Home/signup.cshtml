@@ -1,0 +1,292 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section butonstylo2
+{ 
+ <style>
+           #btn2
+            {
+               background-color: brown;
+               width:50%;
+               height:50%;
+            }
+            #bto
+            {
+               background-color: brown;
+               
+            }
+   </style>
+   <script>
+        function validate() {
+            if (document.getElementById('emailid').value == "") {
+                alert(" email is empty!!");
+                document.f1.emailid.focus();
+                return false;
+            }
+            if (document.getElementById('password').value == "") {
+                alert("password is empty!!");
+                document.f1.password.focus();
+                return false;
+            }
+        }
+   </script>
+    <script>
+        function letternumber(event) {
+            var key;
+            var keychar;
+
+            if (window.event)
+                key = window.event.keyCode;
+
+            keychar = String.fromCharCode(key);
+
+
+            if (((".+-0123456789").indexOf(keychar) > -1))
+                return true;
+            else
+                return false;
+        }
+        function letteralpha(event) {
+            var key;
+            var keychar;
+
+            if (window.event)
+                key = window.event.keyCode;
+
+            keychar = String.fromCharCode(key);
+
+
+            if ((("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.").indexOf(keychar) > -1))
+                return true;
+            else
+                return false;
+        }
+        function validate() {
+
+            if (document.f2.name.value == "") {
+                alert(" name fieldis empty!!");
+                return false;
+            }
+            if (document.getElementById('password').value == "") {
+                alert("password is empty!!");
+                document.f2.password.focus();
+                return false;
+            }
+            if (document.getElementById('newpassword').value == "") {
+                alert(" confirm password is empty!!");
+                document.f2.newpassword.focus();
+                return false;
+            }
+            if (document.getElementById('password').value != document.getElementById('newpassword').value) {
+                alert("password and confirm password donot match");
+
+                return false;
+            }
+            if (document.getElementById('address').value == "") {
+                alert("Address is empty!!");
+                document.f2.Address.focus();
+                return false;
+            }
+            if (document.getElementById('city').value == "") {
+                alert(" city is empty!!");
+                document.f2.city.focus();
+                return false;
+            }
+            if (document.getElementById('country').value == "") {
+                alert(" country  is not selected!!");
+                document.f2.country.focus();
+                return false;
+            }
+            if (document.getElementById('telephone').value == "") {
+                alert("  phone field is empty!!");
+                document.f2.phone.focus();
+                return false;
+            }
+            if (document.getElementById('email').value == "") {
+                alert("your email is empty!!");
+                document.f2.email.focus();
+                return false;
+            }
+            var minlength = 3;
+            var maxlength = 30;
+
+            if (document.f2.name.value.length >= minlength && document.f2.name.value.length <= maxlength) {
+            }
+
+            else {
+                alert("Name must be " + " " + minlength + "to" + " " + maxlength + " character long");
+                return false;
+            }
+
+            var minlength1 = 3;
+            var maxlength1 = 8;
+
+            if (document.f2.password.value.length >= minlength1 && document.f2.password.value.length <= maxlength1) {
+            }
+
+            else {
+                alert("password must be " + " " + minlength1 + "to" + " " + maxlength1 + " character long");
+                return false;
+            }
+            var minlength2 = 3;
+            var maxlength2 = 20;
+
+            if (document.f2.city.value.length >= minlength2 && document.f2.city.value.length <= maxlength2) {
+            }
+
+            else {
+                alert("City  must be " + " " + minlength2 + "to" + " " + maxlength2 + " character long");
+                return false;
+            }
+            var minlength3 = 8;
+            var maxlength3 = 30;
+
+            if (document.f2.email.value.length >= minlength3 && document.f2.email.value.length <= maxlength3) {
+            }
+
+            else {
+                alert("Email id  must be " + " " + minlength3 + "to" + " " + maxlength3 + " " + "character long");
+                return false;
+            }
+        }
+ </script>
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#email').blur(function () {
+
+                var userName = $('#email').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("CheckUserName?email=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("EmailId already exists in database");
+
+                    }
+                    else {
+                        $('#result').text("Email Id is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+	 <style>
+          
+    .style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	font-style: italic;
+}
+     </style>
+}   
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+<div class="border"></div>
+
+        <p><span class="style1">Sign Up </span><br />
+ </p>
+        <p>           <br />
+           
+          
+          
+            </p>
+       <br />
+
+ <form name="f2" id="f2" method="post" action="save" onSubmit="return validate()"">
+	  <table width="524" height="426">`					
+	 
+	     <tr> 
+            <div id="checking">Checking...</div>
+	     <td height="45"  align="right">Email:</td> 
+	     <td ><input type=text name="email" id="email">
+		   <div id="result"></div></td> 
+	   </tr> 
+	  <tr>
+        <td height="41"  align="right"> Username:</td>
+	      <td >
+             
+              <input type=text name="name" id="name" onKeyPress="return letteralpha(event)"/> 
+              
+	      </td>
+		 
+
+      </tr>
+	   
+	  <tr>
+		<td height="51"  align="right">Password:</td>
+	    <td ><input type=password name="password" id=password ></td>
+		 
+	  </tr> 
+	 
+	   <tr> 
+	    <td height="44"  align="right"> Confirm password:</td> 
+	    <td ><input type=password name=newpassword id=newpassword></td>
+		 
+	   </tr> 
+	   
+	      
+	   <tr> 
+	     <td height="48"  align="right">Addresss:</td> 
+	     <td ><input type=text name="address" id="address" ></td> 
+	      
+	   </tr>
+	     	  
+	   <tr> 
+	     <td height="44"  align="right">City:</td> 
+	     <td ><input type=text name="city" id="city" onKeyPress="return letteralpha(event)"></td> 
+		
+	   </tr> 
+         
+	   <tr> 
+	     <td height="45"  align="right">Country:</td> 
+	     <td >
+		<select name="country" id="country">
+		<option value=""></option>		
+		<option value="Pakistan">Pakistan</option>
+		</select>
+         </td> 
+		  
+	   </tr>
+	   <tr> 
+	     <td height="43"  align="right">Telephone:</td> 
+	     <td ><input type=text name="telephone" id="telephone" onKeyPress="return letternumber(event)"></td> 
+		 
+	   </tr>
+          
+	  
+	   
+	   <tr> 
+	     <td ></td> 
+	     <td align="center"><input type="submit" value="Sign up"  id="btn2"></td> 
+	   </tr> 
+	  
+  </table>
+    </form>
+
+<br />
+<br />
+<br />
+
+
+ 
+	 
+
+ 
+
+
+       

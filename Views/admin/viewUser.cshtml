@@ -1,0 +1,53 @@
+﻿@model List<FGFinal.Models.userInfo>
+@{
+    ViewBag.Title = "viewUser";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+ 
+<h2>ALL CUSTOMERS</h2>
+ 
+<table width="472" height="47">
+    
+    <tr>
+        <th>
+           SrNo.
+        </th>
+        <th>
+           UserName
+        </th>
+        <th>
+            Email Id
+        </th>
+         <th>
+           Address
+        </th>
+
+         
+         
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @item.Id
+        </td>
+        <td>
+           @item.name
+        </td>
+        <td>
+            @item.email
+        </td>
+         <td>
+            @item.address
+        </td>
+        
+       
+    </tr>
+}
+
+</table>
+ <br />
+<br />
+<br />

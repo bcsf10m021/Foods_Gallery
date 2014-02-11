@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "changePassword";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+@section validS{
+    <style>
+        #b1 {
+            background:brown;
+            width: 10%;
+            height: 70%;
+        }
+        </style>
+    <script>
+        function validate() {
+            if (document.f2.name.value == "") {
+                alert(" name fieldis empty!!");
+                return false;
+            }
+            if (document.getElementById('old').value == "") {
+                alert("password is empty!!");
+                document.f2.old.focus();
+                return false;
+            }
+            if (document.getElementById('new').value == "") {
+                alert(" New password is empty!!");
+                document.f2.new.focus();
+                return false;
+            }
+            var minlength1 = 3;
+            var maxlength1 = 8;
+
+            if (document.f2.new.value.length >= minlength1 && document.f2.new.value.length <= maxlength1) {
+            }
+
+            else {
+                alert("password must be " + " " + minlength1 + "to" + " " + maxlength1 + " character long");
+                return false;
+            }
+
+        }
+   </script>
+}
+ 
+ 
+<br />
+<div align="right">
+ <form action="logo1" method="post">
+        <input type="submit" value="Logout" id="btn2" />
+    </form>
+    </div>
+<form action="~/admin/chp" method="post" id="f2" name="f2" onSubmit="return validate()" >
+    USERNAME :
+    <br />
+    <input type="text" name="name" id="name"/>
+    <br />
+    OLD PASSWORD:
+    <br />
+    <input type="password" name="old" id="old"/>
+    <br />
+    NEW PASSWORD:
+    <br />
+    <input type="password" name="new" id="new" />
+    <br />
+     <input type="submit" value="Save" id="b1"/>
+
+</form>

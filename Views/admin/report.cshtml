@@ -1,0 +1,51 @@
+﻿@model List<FGFinal.Models.selected>
+@{
+    ViewBag.Title = "report";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+<h2>Report</h2>
+ 
+<table width="472" height="47">
+    
+    <tr>
+        <th>
+           SrNo.
+        </th>
+        <th>
+           UserName
+        </th>
+        <th>
+            Total Bill
+        </th>
+        <th>
+            Date
+        </th>
+         
+         
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @item.Id
+        </td>
+        <td>
+           @item.userName
+        </td>
+        <td>
+            @item.TotalBill
+        </td>
+         <td>
+            @item.date
+        </td>
+        
+       
+    </tr>
+}
+
+</table>
+ <br />
+<br />
+<br />

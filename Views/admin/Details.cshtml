@@ -1,0 +1,33 @@
+﻿@model FGFinal.Models.menuP
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+ 
+
+<h2>Details</h2>
+<fieldset>
+    <legend>MenuP</legend>
+
+    <div >
+        
+       Name:  @Model.itemName
+    </div>
+    
+    <div >
+        Quantity : @Model.quantity
+    </div>
+    
+
+    <div >
+        Price : @Model.price
+    </div>
+   
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "admin")
+</p>

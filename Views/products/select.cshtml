@@ -1,0 +1,153 @@
+﻿@model FGFinal.Models.menuP
+@{
+    ViewBag.Title = "selectItem";
+}
+@section styloo
+{
+    <style>
+
+         #btn2
+            {
+               background-color: brown;
+                width:50%;
+               height:70%;
+            }
+         #ord1
+            {
+               background-color: brown;
+              
+            }
+            #shop
+            {
+               background-color: brown;
+               width:50%;
+               height:70%;
+            }
+              #btn
+            {
+               background-color: brown;
+               
+            }
+             #btn1
+            {
+               background-color: brown;
+               width:50%;
+               height:70%;
+            }
+
+    </style>
+} 
+     <br />
+     <br />   
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+<div class="border"></div>
+
+    		<div align="right">
+     
+    <form action="~/Home/logoo" method="post">
+        <input type="submit" value="Logout" id="ord1" />
+    </form>
+</div>		
+	 
+	   @using (Html.BeginForm()) {
+   
+
+    <fieldset>
+        <legend>Order Item</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.itemName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.itemName)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.quantity)
+        </div>
+        <div class="editor-field">
+           <input type="text" id="quan" name="quan" />
+           
+        </div>
+
+        <div class="editor-label">
+           <p>Type:</p>
+	   
+        </div>
+        <div class="editor-field">
+           <select name="type" id="type">
+		<option value="--Select Type--"></option>		
+		<option value="Spicy">Spicy</option>
+               <option value="Normal">Normal</option>
+               <option value="Less Spicy">Less Spicy</option>
+               <option value="Sweet">Sweet</option>
+               <option value="Less Sugar">Less Sugar</option>
+               <option value="Sugar less">Sugar less</option>
+		</select>
+             <pre> e.g spicy,normal,less sugar etc</pre> 
+        </div>
+
+        <p>
+            <input type="submit" value="Order Now" id="btn" />
+        </p>
+    </fieldset>
+}
+ 
+       <!-- <td height="38"  align="right">Item Name:</td>-->
+         
+	      
+      
+	 <!-- 
+	  <tr>
+		<td height="54"  align="right">Quantity:</td>
+	    <td ><input type=text name="quantity" id="quantity"></td>
+		 
+	  </tr> 
+	  
+	   <tr> 
+	    <td height="42"  align="right">Type:</td> 
+	    <td ><input type="text" name="type" id="type"></td>
+		 
+	    
+	    <td>
+           <pre> e.g spicy,normal,less sugar etc</pre>
+	    </td>
+           </tr>
+	   <tr> 
+	     <td ></td> 
+	     <td align="center"><input type="submit" value="Order Now"  id="btn"></td> 
+	   </tr> 
+	  
+  	</table>
+      <p>&nbsp;</p>
+</form>
+         -->
+<br />
+<br />
+<br />
+<div align="right">
+    <a href="~/Home/menu"><input type="button" value="FOR MORE SHOPPING" id="shop" /></a>
+    <br />
+    <br />
+    <a href="~/products/viewItem"><input type="button" value="To View SHOPPING" id="btn1" /></a>
+    <br />
+    <br />
+    <a href="~/products/bill"><input type="button" value="To Generate Bill" id="btn2" /></a>
+    <br />
+    <br />
+    
+
+</div>
+ <br />
+<br />
+
+	 
+
+

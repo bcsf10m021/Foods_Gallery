@@ -1,0 +1,106 @@
+﻿@model List<FGFinal.Models.selectedP>
+@{
+    ViewBag.Title = "viewItem";
+}
+@section stylo1
+{
+    <style>
+       #btn
+            {
+               background-color: brown;
+               
+            }
+       #ord1
+            {
+               background-color: brown;
+               
+            }
+         #cnl
+            {
+               background-color: brown;
+               
+            }
+       #btn2
+            {
+               background-color: brown;
+               width:70%;
+               height:70%;
+            }
+    </style>
+    }
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="border"></div>
+<br />
+ 
+<table width="472" height="47">
+    
+    <tr>
+        <th>
+           ItemName
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Type
+        </th>
+         
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @item.name
+        </td>
+        <td>
+            @item.price
+        </td>
+        <td>
+           @item.quantity
+        </td>
+        <td>
+           @item.type
+        </td>
+         <td>
+               @Html.ActionLink("Cancel", "Cancel", new { id=item.Id  })
+         </td>
+    </tr>
+}
+
+</table>
+ 
+<br />
+<br />
+<div align="right">
+    <a href="~/products/bill"><input type="button" value="To Generate Bill" id="btn" /></a>
+    <br />
+    <br />
+    
+</div>
+<br />
+<br />
+<br />
+<div align="right">
+     
+    <form action="~/Home/logoo" method="post">
+        <input type="submit" value="Logout" id="ord1" />
+    </form>
+</div>
+<br />
+<br />
+<br />
+ 

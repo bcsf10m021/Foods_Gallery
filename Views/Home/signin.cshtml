@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+@section butonstylo1
+ { 
+  <style>
+     #btn
+            {
+                background-color: brown;
+                width:140%;
+                height:120%;
+            }
+            .style1 {
+	font-size: 36px;
+	font-style: italic;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+       </style>
+    <script>
+        function validate() {
+            if (document.getElementById('emailid').value == "") {
+                alert(" email is empty!!");
+                document.f1.emailid.focus();
+                return false;
+            }
+            if (document.getElementById('password').value == "") {
+                alert("password is empty!!");
+                document.f1.password.focus();
+                return false;
+            }
+        }
+</script>
+   
+}
+      <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+<div class="border"></div>
+
+  <h4 class="style1">Sign In </h4>
+<p>	            <br />
+             	<br />
+         </p>
+         <form name="f1" method="post" action="save1" onSubmit="return validate()">
+           <table width="574">
+             `
+             
+               <tr>
+                 <td  align="center">Username:</td>
+                 <td ><input type="text" name="emailid" id="emailid"></td>
+               </tr>
+               <tr>
+                 <td  align="center">Password:</td>
+                 <td ><input type=password name=password id=password ></td>
+               </tr>
+               <tr>
+                 <td align="center" > &nbsp; <input name="submit" type="submit"id="btn" value='sign In' ></td>
+               </tr>
+           </table>
+         </form>
+         <a href="~/Home/signup"> <p><p><p>CREATE YOUR ACCOUNT</a>
+ 
+
+
+       

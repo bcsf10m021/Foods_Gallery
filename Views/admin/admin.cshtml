@@ -1,0 +1,70 @@
+﻿@model List<FGFinal.Models.menuP>
+@{
+    ViewBag.Title = "admin";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+ 
+  
+<br />
+<div align="right">
+ <form action="logo1" method="post">
+        <input type="submit" value="Logout" id="btn2" />
+    </form>
+    </div>
+ 
+<table width="900" height="170">
+    <tr>
+        <th width="193">
+           <h5>Image</h5>
+        </th>
+        <th width="202">
+           <h5>ItemName</h5>
+        </th>
+        <th width="127">
+           <h5> Price</h5>
+        </th>
+
+        <th width="172">
+           <h5> Quantity</h5>
+        </th>
+
+         
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <img src="~/images/itemss/@item.type" width="164"/>
+            <br />
+            <br />
+        </td>
+        <td>
+           @item.itemName
+        </td>
+        <td>
+            @item.price
+        </td>
+        <td>
+           @item.quantity
+        </td>
+        <td>
+              
+
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |        
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+ <br />
+<br />
+
+<br />
+<br />
+<br />
+
+

@@ -1,0 +1,42 @@
+﻿@model FGFinal.Models.menuP
+
+@{
+    ViewBag.Title = "Delete";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+ 
+
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Product</legend>
+
+    <div >
+        
+       Name:  @Model.itemName
+    </div>
+    
+    <div >
+        Price : @Model.price
+    </div>
+    
+
+    <div >
+        Quantity : @Model.quantity
+    </div>
+   
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" style="   
+               background-color: brown;
+               width:10%;
+               height:500%;
+            " /> |
+        @Html.ActionLink("Back to List", "admin")
+    </p>
+}

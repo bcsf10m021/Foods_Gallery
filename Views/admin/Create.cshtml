@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+@section createValid{
+    <style>
+          #btn2
+            {
+               background-color: brown;
+               width:10%;
+               height:500%;
+            }
+    </style>
+    <script>
+        function validate() {
+            if (document.f2.itemName.value == "") {
+                alert(" name fieldis empty!!");
+                return false;
+            }
+            if (document.getElementById('price').value == "") {
+                alert("price field is empty!!");
+                document.f2.price.focus();
+                return false;
+            }
+            if (document.getElementById('quantity').value == "") {
+                alert(" quantity field is empty!!");
+                document.f2.quantity.focus();
+                return false;
+            }
+            if (document.getElementById('image').value == "") {
+                alert(" Image field is empty!!");
+                document.f2.image.focus();
+                return false;
+            }
+        }
+        </script>
+     
+}
+ 
+  
+
+ <form action="createMenu" name="f2" id="f2" method="post" enctype="multipart/form-data" onSubmit="return validate()" >
+    <fieldset>
+        <legend>Products</legend>
+
+        <div>
+            <label >Name</label>
+        </div>
+        <div>
+            <input  id="itemName" name="itemName" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Price</label>
+        </div>
+        <div >
+            <input  id="price" name="price" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Quantity</label>
+        </div>
+        <div>
+            <input id="quantity" name="quantity" type="text" value="" />
+           
+        </div>
+        <div >
+            <label >Type</label>
+        </div>
+         <div>
+             
+            <input type="file" name="image" id="image"   "/>
+            
+        </div>
+          
+        
+
+        <p>
+            <input type="submit" value="Create" id="btn2"/>
+        </p>
+    </fieldset>
+</form>
+
+<div>
+    @Html.ActionLink("Back to Menu", "adminMain")
+</div>
+
+

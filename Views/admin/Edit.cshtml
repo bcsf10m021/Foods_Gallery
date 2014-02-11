@@ -1,0 +1,85 @@
+﻿@model FGFinal.Models.menuP
+
+@{
+    ViewBag.Title = "Edit";
+}
+@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+@section getVal
+{
+    <style>
+          #btn2
+            {
+               background-color: brown;
+               width:10%;
+               height:500%;
+            }
+    </style>
+    <script>
+        function updateVal() {
+            var input = document.getElementByName("type").value;
+            var output = document.getElementById("typ").value;
+            if (output != null) {
+                input.value = output;
+            }
+        }
+
+
+    </script>
+}
+ 
+<h2>Edit</h2>
+
+@using (Html.BeginForm(new { enctype = "multipart/form-data" }))
+{
+   
+
+    <fieldset>
+        <legend>Edit</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.itemName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.itemName)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.quantity)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.quantity)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.price)
+           
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.type)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.type)
+           <br />
+             <input type="file" name="typeo" id="typ"  onclick="return updateVal()"; />
+        </div>
+       
+        <p>
+            <input type="submit" value="Save" id="btn2" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "admin")
+</div>
+
+
